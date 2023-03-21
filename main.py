@@ -8,13 +8,13 @@
 
 def file_func(file_name):
     dct = {}
-    amount = 0
     with open(file_name, 'r', encoding='utf-8') as file:
-        for i in file:
-            if i == file.isalpha():
-                amount += 1
-                i.lower()
-                dct[i] = amount
+        for i in file.read():
+            if i.isalpha():
+                if i in dct:
+                    dct[i] += 1
+                else:
+                    dct[i] = 1
     return dct
 n = file_func('your file')
 print(n)
